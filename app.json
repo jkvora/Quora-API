@@ -1,0 +1,7 @@
+{
+  "name": "Quota Scrapper",
+  "description": "A Simple Quora API via Scrapper",
+  "repository":"https://github.com/jkvora/Quora-Scraper.git",
+  "logo": "https://mlab.com/company/brand/resources/mLab-logo-onlight.png",
+  "keywords": ["node", "express",, "API"]
+}

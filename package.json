@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-      "start": "node app.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,9 @@
   },
   "homepage": "https://github.com/jkvora/Quora-Scraper",
   "dependencies": {
-    "express": "^4.13.4"
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.13.4",
+    "jk-demopkg": "^1.0.1",
+    "request": "^2.83.0"
   }
 }

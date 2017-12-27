@@ -11,9 +11,7 @@
     "type": "git",
     "url": "https://github.com/jkvora/Quora-Scraper"
   },
-  "engines": {
-    "node": "0.10.40"
-  },
+  
   "keywords": [
     "Quora",
     "Web",

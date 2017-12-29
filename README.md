@@ -7,8 +7,8 @@ A Simple Quora Scrapper to scrape data (Unofficial)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Endpoints](#endpoints)
-  - [/profile/:username](#/profile/:username)
-  - [/stats/:username](#/stats/:username)
+  - [/profile/:username](#profileusername)
+  - [/stats/:username](#statsusername)
 - [Contribute](#contribute)
 - [License](#license)
 
@@ -74,3 +74,6 @@ Want to add another awesome feature? [Fork](https://github.com/jkvora/Quora-Scra
 ## License
 The MIT License (MIT)
 Copyright (c) 2017 Jalak Vora
+
+
+

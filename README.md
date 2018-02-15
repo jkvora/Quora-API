@@ -73,7 +73,7 @@ Want to add another awesome feature? [Fork](https://github.com/jkvora/Quora-Scra
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2017 Jalak Vora
+Copyright (c) 2018 Jalak Vora
 
 
 

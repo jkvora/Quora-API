@@ -1,5 +1,5 @@
 {
-  "name": "Quora_Scrapper",
+  "name": "quora-scrapper",
   "version": "1.0.0",
   "description": "A Simple Quora Scrapper",
   "main": "app.js",

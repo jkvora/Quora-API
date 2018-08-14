@@ -11,7 +11,6 @@
     "type": "git",
     "url": "https://github.com/jkvora/Quora-Scraper"
   },
-  
   "keywords": [
     "Quora",
     "Web",
@@ -24,9 +23,6 @@
   },
   "homepage": "https://github.com/jkvora/Quora-Scraper",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "express": "^4.13.4",
-    "jk-demopkg": "^1.0.1",
-    "request": "^2.83.0"
+    "express": "^4.16.3"
   }
 }

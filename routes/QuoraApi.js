@@ -1,129 +1,97 @@
-var express=require('express');
-var router=express.Router();
-var temp=require('jk-demopkg');
+var express = require('express');
+var puppeteer = require('puppeteer');
+var router = express.Router();
 
 
-//Check Out temporary modules created
-temp.printMsg();
-temp.CheckMsg();
 
-//Get Node Modules
-var cheerio=require("cheerio");
-var request=require("request");
-
-
-var qURL="https://www.quora.com/profile/";
+var qURL = "https://www.quora.com/";
 
 
 //Get profile Details
-router.get('/profile/:username', function(req, res){
-  URL=qURL+req.params.username;
-  GetProfileDetails(req.params.username,function(profile) {
-     console.log(profile);
-     res.json(profile);
+router.get('/profile/:username', async function (req, res) {
+
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto(qURL + "profile/" + req.params.username);
+
+
+  const data = await page.evaluate(() => {
+    var profile = {};
+
+    profile.work = document.querySelector(".WorkCredentialListItem  .UserCredential").innerText;
+    profile.workdesc = document.querySelector(".WorkCredentialListItem  .detail_text").innerText;
+
+    profile.school = document.querySelector(".SchoolCredentialListItem  .UserCredential").innerText;
+
+    profile.location = document.querySelector(".LocationCredentialListItem  .UserCredential").innerText;
+    return profile;
   });
+  await browser.close();
+  res.send(data);
 });
 
 
 //Get Stats Detials
-router.get('/stats/:username', function(req, res){
-  URL=qURL+req.params.username;
-  GetUserStats(req.params.username,function(stats){
-     console.log(stats);
-     res.json(stats);
+router.get('/stats/:username', async function (req, res) {
+
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto(qURL + "profile/" + req.params.username);
+
+
+  const data = await page.evaluate(() => {
+    var stats = {};
+    stats.answers = document.querySelector(".AnswersNavItem  .list_count").innerText;
+    stats.questions = document.querySelector(".QuestionsNavItem  .list_count").innerText;
+
+    stats.posts = document.querySelector(".PostsNavItem  .list_count").innerText;
+    stats.blogs = document.querySelector(".BlogsNavItem  .list_count").innerText;
+    stats.followers = document.querySelector(".FollowersNavItem  .list_count").innerText;
+
+    stats.following = document.querySelector(".FollowingNavItem  .list_count").innerText;
+    stats.topics = document.querySelector(".TopicsNavItem  .list_count").innerText;
+    stats.edits = document.querySelector(".OperationsNavItem  .list_count").innerText;
+
+    return stats;
   });
+  await browser.close();
+  res.send(data);
+
+});
+
+
+
+//Get Stats Detials
+router.get('/answer/:question/:username', async function (req, res) {
+
+  const browser = await puppeteer.launch();
+  const page = await browser.newPage();
+  await page.goto(qURL + req.params.question + "/answer/" + req.params.username, { "waitUntil": "networkidle0" });
+  await page.evaluate('window.scrollTo(0, document.body.scrollHeight)');
+
+
+   await page.evaluate(() => {
+    let body = document.querySelector("body");
+    let answer = document.querySelector(".layout_1col_main_card");
+    let authorCard = document.querySelector(".AboutAuthorSection");
+    var moreQues = document.querySelector(".AnswerPageViewMoreLink");
+    moreQues.style.display="none";
+    body.innerHTML = "";
+    body.appendChild(answer);
+    body.appendChild(authorCard);
+
+  });
+
+  await page.pdf({ path: req.params.question + "  ( By - " + req.params.username + " ) " })
+  await browser.close();
+  res.send("Success");
+
 });
 
 
 
 
-GetProfileDetails=function(username,callback) {
-  //Create JSON
-  var profile={ name:"",  url:"" , pic:"" ,  status:""};
-
-  //Get Profile URL
-  profile.url=URL;
-
-  request(URL,function(error,response,html){
-    if(!error){
-      var $=cheerio.load(html);
-
-      //GET Profile Name
-      var data=$('.user');
-      if(IsData(data[0]))
-        profile.name=data[0].children[0].data.trim();
-
-      //Get ProfilePhotoLink
-      var data=$('.ProfilePhoto');
-      if(IsData(data[0]))
-        profile.pic=data[0].children[0].attribs["data-src"];
-
-      //Get Profile Status
-      var data=$('.rendered_qtext','.ProfileNameAndSig');
-      if(IsData(data[0]))
-        profile.status=data[0].children[0].data.trim();
-  }
-  callback(profile);
-});
-
-
-}
 
 
 
-//Get User Statistics
-GetUserStats=function(username,callback) {
-  //Create JSON
-  var stats={
-    answers:0,  questions:0 , posts:0,
-    followers:0 ,  following:0,    edits:0,
-    views:
-    {
-      last30days:0,
-      alltime:0
-    }
-  };
-
-  request(URL,function(error,response,html){
-    if(!error){
-      var $=cheerio.load(html);
-      //Get Profile Stats
-      var data=$('.list_count');
-      if(IsData(data[0]))
-        stats.answers=parseInt(data[0].children[0].data);
-      if(IsData(data[1]))
-        stats.questions=parseInt(data[1].children[0].data);
-      if(IsData(data[2]))
-          stats.posts=parseInt(data[2].children[0].data);
-      if(IsData(data[3]))
-          stats.followers=parseInt(data[3].children[0].data);
-      if(IsData(data[4]))
-          stats.following=parseInt(data[4].children[0].data);
-      if(IsData(data[5]))
-          stats.edits=parseInt(data[5].children[0].data);
-
-      //Get  Stats
-      var data=$('.total_count');
-      if(IsData(data[0]))
-          stats.views.last30days=parseInt(data[0].children[0].data);
-      if(IsData(data[1]))
-          stats.views.alltime=parseInt(data[1].children[0].data);
-    }
-    callback(stats);
-});
-
-}
-
-
-//Returns true if data is not null and data.children has value
-IsData=function(data){
-if(!data)
-  return false;
-if(!data.children[0])
-  return false;
-
-return true;
-}
-
-
-module.exports=router;
+module.exports = router;

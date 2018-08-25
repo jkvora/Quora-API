@@ -82,9 +82,16 @@ router.get('/answer/:question/:username', async function (req, res) {
 
   });
 
-  await page.pdf({ path: req.params.question + "  ( By - " + req.params.username + " ) " })
+  res.setHeader('Content-disposition', 'attachment; filename='+req.params.question + "  ( By - " + req.params.username + " ).pdf ");
+  res.setHeader('Content-type', 'application/pdf');
+  res.charset = 'UTF-8';
+
+  
+  await page.pdf().then(data=>{
+      res.write(data);
+  });
   await browser.close();
-  res.send("Success");
+  res.send();
 
 });
 

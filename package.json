@@ -32,6 +32,8 @@
   },
   "homepage": "https://github.com/jkvora/Quora-Scraper",
   "dependencies": {
+    "@material-ui/core": "^3.0.1",
+    "@material-ui/icons": "^3.0.1",
     "express": "^4.16.3",
     "puppeteer": "^1.7.0",
     "react": "^16.4.2",
@@ -58,6 +60,7 @@
     "lint-staged": "^7.2.2",
     "nodemon": "^1.18.3",
     "prettier": "^1.14.2",
+    "react-loader": "^2.4.5",
     "style-loader": "^0.22.1",
     "webpack-cli": "^3.1.0",
     "webpack-command": "^0.4.1",

@@ -3,12 +3,8 @@ import { render } from 'react-dom';
 
 
 
-var header;
 
 export default class App extends Component {
-
-
-
 
     constructor(props) {
         super(props);
@@ -16,21 +12,12 @@ export default class App extends Component {
     }
 
 
-    componentDidMount() {
-        import(/* webpackChunkName: "header" */"./Header/header").then(localConfig => {
-            //create a global config variable
-            debugger;
-            this.setState({ head: localConfig.default })
-        })
-    }
-
-
-
     render() {
-        const { head: Component } = this.state;
-        return <div>My name is Jalak
-            {Component && <Component />}
-        </div>
+        return (
+            <div>
+                Hi my name is shail
+            </div>
+        )
     }
 
 }

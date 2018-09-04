@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 
-
+import AppBar from './AppBar/appBar';
+import ProfileInput from './ProfileInput/profileInput';
 
 
 export default class App extends Component {
@@ -15,7 +16,8 @@ export default class App extends Component {
     render() {
         return (
             <div>
-                Hi my name is shail
+               <AppBar/>
+               <ProfileInput/>
             </div>
         )
     }

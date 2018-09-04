@@ -21,8 +21,9 @@ function Inputs(props) {
     <div className={classes.container} className={customstyles.urlinput}>
     
       <Input
-        defaultValue="Hi I am jksd "
-        className={classes.input + customstyles.urlinput}
+       
+        placeholder="https://www.quora.com/profile/Jalak-Vora"
+        className={classes.input + " "+customstyles.urlinput}
         inputProps={{
           'aria-label': 'Description',
         }}

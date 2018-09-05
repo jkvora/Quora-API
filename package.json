@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon  server/app.js &  npm run client",
     "client": "cd public &&  webpack-dev-server --inline --hot --open",
-    "pretty": "./node_modules/.bin/prettier --single-quote --write './public/*.js'",
+    "pretty": "./node_modules/.bin/prettier --single-quote --write './public/**/*.js'",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -34,9 +34,11 @@
   "dependencies": {
     "@material-ui/core": "^3.0.1",
     "@material-ui/icons": "^3.0.1",
+    "codemirror": "^5.40.0",
     "express": "^4.16.3",
     "puppeteer": "^1.7.0",
     "react": "^16.4.2",
+    "react-codemirror2": "^5.1.0",
     "react-dom": "^16.4.2",
     "webpack": "^4.17.1"
   },

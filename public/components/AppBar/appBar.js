@@ -7,8 +7,8 @@ import Typography from '@material-ui/core/Typography';
 
 const styles = {
   root: {
-    flexGrow: 1,
-  },
+    flexGrow: 1
+  }
 };
 
 function SimpleAppBar(props) {
@@ -18,7 +18,7 @@ function SimpleAppBar(props) {
       <AppBar position="static" color="default">
         <Toolbar>
           <Typography variant="title" color="inherit">
-            Quora API 
+            Quora API
           </Typography>
         </Toolbar>
       </AppBar>
@@ -27,7 +27,7 @@ function SimpleAppBar(props) {
 }
 
 SimpleAppBar.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(SimpleAppBar);

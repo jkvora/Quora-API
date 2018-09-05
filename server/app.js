@@ -12,6 +12,8 @@ app.use(express.static(__dirname + './../public/dist'));
 
 
 
+
+
 app.get('/',function(req,res){
         res.sendFile('index.html')
 })

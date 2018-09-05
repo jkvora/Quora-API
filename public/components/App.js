@@ -3,23 +3,16 @@ import { render } from 'react-dom';
 
 import AppBar from './AppBar/appBar';
 import ProfileInput from './ProfileInput/profileInput';
-
+import ApiExplorer from './ApiExplorer/apiexplorer';
 
 export default class App extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = { head: null };
-    }
-
-
-    render() {
-        return (
-            <div>
-               <AppBar/>
-               <ProfileInput/>
-            </div>
-        )
-    }
-
+  render() {
+    return (
+      <div>
+        <AppBar />
+        <ProfileInput />
+        <ApiExplorer />
+      </div>
+    );
+  }
 }

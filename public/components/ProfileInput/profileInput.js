@@ -7,25 +7,22 @@ import customstyles from './profileInput.css';
 const styles = theme => ({
   container: {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexWrap: 'wrap'
   },
   input: {
-    margin: theme.spacing.unit,
-  },
+    margin: theme.spacing.unit
+  }
 });
 
 function Inputs(props) {
   const { classes } = props;
   return (
-  
-    <div className={classes.container} className={customstyles.urlinput}>
-    
+    <div className={classes.container} className={customstyles.inpwidth}>
       <Input
-       
         placeholder="https://www.quora.com/profile/Jalak-Vora"
-        className={classes.input + " "+customstyles.urlinput}
+        className={classes.input + ' ' + customstyles.urlinput}
         inputProps={{
-          'aria-label': 'Description',
+          'aria-label': 'Description'
         }}
       />
     </div>
@@ -33,7 +30,7 @@ function Inputs(props) {
 }
 
 Inputs.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(Inputs);

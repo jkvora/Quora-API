@@ -1,17 +1,14 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import ReactJson from 'react-json-view'
+import ApiContainer from './ApiContainer/apicontainer';
+import ApiOutput from './ApiOutput/apioutput';
 
 export default class ApiExplorer extends Component {
   render() {
-    let obj={
-      a:3,
-      b:4
-    }
     return (
       <div>
-      
-        <ReactJson src={obj} theme="monokai"/>
+        <ApiContainer />
+        <ApiOutput />
       </div>
     );
   }

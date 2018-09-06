@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import { UnControlled as CodeMirror } from 'react-codemirror2';
-
-require('codemirror/mode/xml/xml');
-require('codemirror/mode/javascript/javascript');
+import ReactJson from 'react-json-view'
 
 export default class ApiExplorer extends Component {
   render() {
+    let obj={
+      a:3,
+      b:4
+    }
     return (
       <div>
-        <CodeMirror
-          value="<h1>I ♥ react-codemirror2</h1>"
-          options={{
-            mode: 'xml',
-            theme: 'material',
-            lineNumbers: true
-          }}
-          onChange={(editor, data, value) => {}}
-        />
+      
+        <ReactJson src={obj} theme="monokai"/>
       </div>
     );
   }

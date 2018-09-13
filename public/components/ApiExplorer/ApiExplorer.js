@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-import ApiOutput from './ApiOutput/apioutput';
-import styles from './apiexplorer.css';
-import Profile from './Profile/profile';
-import Stats from './Stats/stats';
+import ApiOutput from './ApiOutput/ApiOutput';
+import styles from './ApiExplorer.css';
+import Profile from './Profile/Profile';
+import Stats from './Stats/Stats';
 
 
 export default class ApiExplorer extends Component {

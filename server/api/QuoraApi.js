@@ -70,25 +70,25 @@ router.get('/answer/:question/:username', async function (req, res) {
   await page.evaluate('window.scrollTo(0, document.body.scrollHeight)');
 
 
-   await page.evaluate(() => {
+  await page.evaluate(() => {
     let body = document.querySelector("body");
     let answer = document.querySelector(".layout_1col_main_card");
     let authorCard = document.querySelector(".AboutAuthorSection");
     var moreQues = document.querySelector(".AnswerPageViewMoreLink");
-    moreQues.style.display="none";
+    moreQues.style.display = "none";
     body.innerHTML = "";
     body.appendChild(answer);
     body.appendChild(authorCard);
 
   });
 
-  res.setHeader('Content-disposition', 'attachment; filename='+req.params.question + "  ( By - " + req.params.username + " ).pdf ");
+  res.setHeader('Content-disposition', 'attachment; filename=' + req.params.question + "  ( By - " + req.params.username + " ).pdf ");
   res.setHeader('Content-type', 'application/pdf');
   res.charset = 'UTF-8';
 
-  
-  await page.pdf().then(data=>{
-      res.write(data);
+
+  await page.pdf().then(data => {
+    res.write(data);
   });
   await browser.close();
   res.send();

@@ -1,0 +1,12 @@
+.apiContainer{
+    display: flex;
+}
+
+.apiBox{
+    width: 50%;
+    text-align: center;
+}
+
+.apiOutput{
+    width: 50%;
+}

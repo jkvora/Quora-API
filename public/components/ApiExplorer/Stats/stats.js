@@ -19,12 +19,12 @@ function StatsApi(props) {
       <Button variant="outlined" color="primary" className={classes.button}>
         Stats
       </Button>
-      <Button variant="outlined" color="secondary" className={classes.button}>
+      {/* <Button variant="outlined" color="secondary" className={classes.button}>
         Stats
       </Button>
       <Button variant="outlined" disabled className={classes.button}>
         Stats
-      </Button>
+      </Button> */}
     </div>
   );
 }

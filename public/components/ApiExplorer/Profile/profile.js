@@ -19,12 +19,12 @@ function ProfileApi(props) {
       <Button variant="outlined" color="primary" className={classes.button}>
         Profile
       </Button>
-      <Button variant="outlined" color="secondary" className={classes.button}>
+      {/* <Button variant="outlined" color="secondary" className={classes.button}>
         Profile
       </Button>
       <Button variant="outlined" disabled className={classes.button}>
         Profile
-      </Button>
+      </Button> */}
     </div>
   );
 }

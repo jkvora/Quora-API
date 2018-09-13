@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { render } from 'react-dom';
-
 import ReactJson from 'react-json-view';
 
 export default class ApiOutput extends Component {

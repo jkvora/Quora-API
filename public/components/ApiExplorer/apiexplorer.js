@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import ApiContainer from './ApiContainer/apicontainer';
 import ApiOutput from './ApiOutput/apioutput';
+import styles from './apiexplorer.css';
+import Profile from './Profile/profile';
+import Stats from './Stats/stats';
+
 
 export default class ApiExplorer extends Component {
   render() {
     return (
-      <React.Fragment>
-        <ApiContainer />  
-      </React.Fragment>
+      <div className={styles.apiContainer}>
+        <div className={styles.apiBox}>
+            <Profile/>
+            <Stats/>
+        </div>
+        <div className={styles.apiOutput}>
+          <ApiOutput />
+        </div>
+      </div>
     );
   }
 }

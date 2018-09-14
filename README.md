@@ -1,5 +1,5 @@
-# Quora-Scraper
-A Simple Quora Scrapper to scrape data (Unofficial)
+# Quora-API
+A Simple Quora API (Unofficial)
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square)](LICENSE)
 ## Table of Contents

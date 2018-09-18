@@ -39,6 +39,8 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-json-view": "^1.19.1",
+    "redux": "^4.0.0",
+    "redux-saga": "^0.16.0",
     "webpack": "^4.17.1"
   },
   "devDependencies": {
@@ -46,9 +48,10 @@
     "babel-core": "^6.26.3",
     "babel-eslint": "^9.0.0",
     "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^1.0.0",
     "eslint": "^5.4.0",
     "eslint-config-react-app": "^2.1.0",

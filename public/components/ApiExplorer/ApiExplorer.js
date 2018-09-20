@@ -4,14 +4,13 @@ import styles from './ApiExplorer.css';
 import Profile from './Profile/Profile';
 import Stats from './Stats/Stats';
 
-
 export default class ApiExplorer extends Component {
   render() {
     return (
       <div className={styles.apiContainer}>
         <div className={styles.apiBox}>
-            <Profile/>
-            <Stats/>
+          <Profile />
+          <Stats />
         </div>
         <div className={styles.apiOutput}>
           <ApiOutput />

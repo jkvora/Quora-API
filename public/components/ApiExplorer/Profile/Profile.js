@@ -1,14 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
 
 const styles = theme => ({
   button: {
     margin: theme.spacing.unit
   },
   input: {
-    display: 'none'
+    display: "none"
   }
 });
 
@@ -16,7 +16,12 @@ function ProfileApi(props) {
   const { classes } = props;
   return (
     <div>
-      <Button variant="outlined" color="primary" className={classes.button}>
+      <Button
+        variant="outlined"
+        color="primary"
+        className={classes.button}
+        onClick={props.increment}
+      >
         Profile
       </Button>
       {/* <Button variant="outlined" color="secondary" className={classes.button}>

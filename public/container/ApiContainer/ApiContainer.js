@@ -30,7 +30,10 @@ class ApiContainer extends Component {
       <div>
         {this.props.countr}
         <ProfileInput inputChange={this.handleInputChange.bind(this)} />
-        <ApiExplorer increment={this.handleClick.bind(this)} />
+        <ApiExplorer
+          increment={this.handleClick.bind(this)}
+          validurl={this.props.isValidURL}
+        />
       </div>
     );
   }

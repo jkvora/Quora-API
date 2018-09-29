@@ -1,14 +1,10 @@
-import { combineReducers } from 'redux';
-import * as ActionTypes from './../actions';
+import { combineReducers } from "redux";
+import * as ActionTypes from "./../actions";
 
 function validURL(state = {}, action) {
   switch (action.type) {
     case ActionTypes.VALID_URL: {
-      state.validURL = true;
-      break;
-    }
-    case ActionTypes.INVALID_URL: {
-      state.validURL = false;
+      state = action.bValid;
       break;
     }
   }

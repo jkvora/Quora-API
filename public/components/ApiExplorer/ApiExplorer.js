@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import ApiOutput from "./ApiOutput/ApiOutput";
-import styles from "./ApiExplorer.css";
-import Profile from "./Profile/Profile";
-import Stats from "./Stats/Stats";
+import React, { Component } from 'react';
+import ApiOutput from './ApiOutput/ApiOutput';
+import styles from './ApiExplorer.css';
+import Profile from './Profile/Profile';
+import Stats from './Stats/Stats';
 
 export default class ApiExplorer extends Component {
   render() {

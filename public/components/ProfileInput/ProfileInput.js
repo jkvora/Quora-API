@@ -24,6 +24,7 @@ function Inputs(props) {
         inputProps={{
           'aria-label': 'Description'
         }}
+        onInput={props.inputChange}
       />
     </div>
   );

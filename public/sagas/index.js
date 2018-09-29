@@ -1,10 +1,10 @@
-import { put, takeEvery, delay } from 'redux-saga/effects';
-
+import { takeEvery } from 'redux-saga/effects';
+import { delay } from 'redux-saga';
 import * as ActionTypes from './../actions';
 
 export function* incrementAsync() {
   yield delay(1000);
-  yield put({ type: ActionTypes.incrementAsync });
+ // yield put(counter());
 }
 
 export default function* rootSaga() {

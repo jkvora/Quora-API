@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import ApiExplorer from "../../components/ApiExplorer/ApiExplorer";
 import ProfileInput from "../../components/ProfileInput/ProfileInput";
-import { increment } from "./../../actions";
+import { counter } from "./../../actions";
 
 class ApiContainer extends Component {
   handleClick(event) {
     console.log(event);
-    this.props.increment();
+    this.props.counter();
   }
 
   render() {
@@ -27,13 +27,10 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps() {
-  return {
-    increment
-  };
-}
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  {
+    counter
+  }
 )(ApiContainer);

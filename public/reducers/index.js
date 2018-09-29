@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import * as ActionTypes from './../actions';
 
 function validURL(state = {}, action) {
-  switch (action) {
+  switch (action.type) {
     case ActionTypes.VALID_URL: {
       state.validURL = true;
       break;
@@ -16,17 +16,17 @@ function validURL(state = {}, action) {
   return state;
 }
 
-function counter(state = {}, action) {
-  switch (action) {
+function counter(counter = {}, action) {
+  switch (action.type) {
     case ActionTypes.INCREMENT: {
-      state.counter += 1;
+      counter += 1;
       break;
     }
     case ActionTypes.DECREMENT: {
-      state.counter -= 1;
+      counter -= 1;
     }
   }
-  return state;
+  return counter;
 }
 
 const rootReducer = combineReducers({

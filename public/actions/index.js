@@ -8,4 +8,4 @@ function action(type, payload = {}) {
   return { type, ...payload };
 }
 
-export const increment = () => action(INCREMENT);
+export const counter = () => action(INCREMENT);

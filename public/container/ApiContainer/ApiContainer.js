@@ -2,12 +2,17 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import ApiExplorer from "../../components/ApiExplorer/ApiExplorer";
 import ProfileInput from "../../components/ProfileInput/ProfileInput";
-import { dispatchcounter, checkvalidURL } from "./../../actions";
+import {
+  dispatchcounter,
+  checkvalidURL,
+  fetchProfile,
+  fetchStats
+} from "./../../actions";
 
 class ApiContainer extends Component {
   handleClick(event) {
     //console.log(event);
-    this.props.dispatchcounter();
+    this.props.fetchProfile();
   }
 
   handleInputChange(event) {
@@ -60,6 +65,8 @@ function mapStateToProps(state) {
 export default connect(
   mapStateToProps,
   {
+    fetchProfile,
+    fetchStats,
     dispatchcounter,
     checkvalidURL
   }

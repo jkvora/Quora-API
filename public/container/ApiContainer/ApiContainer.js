@@ -19,8 +19,19 @@ class ApiContainer extends Component {
   }
 
   passQuoraProfileMatch(text) {
-    if (text == "https://www.quora.com/profile/Jalak-Vora") {
-      return true;
+    try {
+      let url = new URL(text);
+      let urlTree = url.pathname.split("/");
+      if (
+        (url.hostname === "www.quora.com" || url.hostname === "quora.com") &&
+        urlTree.length == 3
+      ) {
+        if (urlTree[1] === "profile" && urlTree[2] != "") {
+          return true;
+        }
+      }
+    } catch (err) {
+      return false;
     }
     return false;
   }

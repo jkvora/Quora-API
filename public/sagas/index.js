@@ -16,14 +16,14 @@ export function* fetchProfile() {
 }
 
 function getProfile() {
-  api
-    .fetchProfile("Jalak-Vora")
-    .then(data => {
-      resolve(data);
-    })
-    .catch(err => {
+  return new Promise(async function(resolve, reject) {
+    try {
+      let result = await api.fetchProfile("Jalak-Vora");
+      resolve(result);
+    } catch (err) {
       reject(err);
-    });
+    }
+  });
 }
 
 export function* fetchStats() {

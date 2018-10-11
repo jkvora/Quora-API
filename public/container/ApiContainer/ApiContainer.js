@@ -44,7 +44,6 @@ class ApiContainer extends Component {
   render() {
     return (
       <div>
-        {this.props.countr}
         <ProfileInput inputChange={this.handleInputChange.bind(this)} />
         <ApiExplorer
           increment={this.handleClick.bind(this)}

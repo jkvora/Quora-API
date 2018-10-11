@@ -18,6 +18,7 @@ export function* fetchProfile() {
 function getProfile() {
   return new Promise(async function(resolve, reject) {
     try {
+      debugger;
       let result = await api.fetchProfile("Jalak-Vora");
       resolve(result);
     } catch (err) {

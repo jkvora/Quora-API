@@ -54,6 +54,7 @@ module.exports = {
     proxy: [
       // allows redirect of requests to webpack-dev-server to another destination
       {
+        context: ["/api"],
         target: "http://localhost:5000", // server and port to redirect to
         secure: false
       }

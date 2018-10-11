@@ -17,10 +17,10 @@ function callApi(endpoint) {
   });
 }
 
-export const fetchProfile = username => {
-  callApi(`/profile/${username}`);
+export const fetchProfile = async username => {
+  return await callApi(`/profile/${username}`);
 };
 
-export const fetchStats = username => {
-  callApi(`/stats/${username}`);
+export const fetchStats = async username => {
+  return await callApi(`/stats/${username}`);
 };

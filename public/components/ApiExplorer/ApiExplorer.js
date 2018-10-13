@@ -16,7 +16,7 @@ export default class ApiExplorer extends Component {
           <Stats />
         </div>
         <div className={styles.apiOutput}>
-          <ApiOutput />
+          <ApiOutput apiJson={this.props.apiJson} />
         </div>
       </div>
     );

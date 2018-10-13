@@ -1,4 +1,4 @@
-import { takeEvery } from "redux-saga/effects";
+import { takeEvery, put } from "redux-saga/effects";
 import { delay } from "redux-saga";
 import * as ActionTypes from "./../actions";
 import api from "./../services";
@@ -11,6 +11,8 @@ export function* incrementAsync() {
 export function* fetchProfile() {
   console.log("In Profile");
   let result = yield getProfile();
+  yield put({ type: ActionTypes.API_OUTPUT, result });
+
   console.log(result);
   // yield put(counter());
 }

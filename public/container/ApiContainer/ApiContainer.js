@@ -48,6 +48,7 @@ class ApiContainer extends Component {
         <ApiExplorer
           increment={this.handleClick.bind(this)}
           validurl={this.props.isValidURL}
+          apiJson={this.props.apiData}
         />
       </div>
     );
@@ -57,7 +58,8 @@ class ApiContainer extends Component {
 function mapStateToProps(state) {
   return {
     countr: state.counter,
-    isValidURL: state.validURL
+    isValidURL: state.validURL,
+    apiData: state.apiOutput
   };
 }
 

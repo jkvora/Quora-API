@@ -12,6 +12,17 @@ function validURL(state = {}, action) {
   return state;
 }
 
+function apiOutput(state = {}, action) {
+  switch (action.type) {
+    case ActionTypes.API_OUTPUT: {
+      state = action.result;
+      break;
+    }
+  }
+
+  return state;
+}
+
 function counter(counter = {}, action) {
   switch (action.type) {
     case ActionTypes.INCREMENT: {
@@ -27,7 +38,8 @@ function counter(counter = {}, action) {
 
 const rootReducer = combineReducers({
   validURL,
-  counter
+  counter,
+  apiOutput
 });
 
 export default rootReducer;

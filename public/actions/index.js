@@ -1,4 +1,5 @@
 export const VALID_URL = "VALID_URL";
+export const API_OUTPUT = "API_OUTPUT";
 
 export const INCREMENT = "INCREMENT";
 export const DECREMENT = "DECREMENT";

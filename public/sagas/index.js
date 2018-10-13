@@ -8,30 +8,18 @@ export function* incrementAsync() {
   // yield put(counter());
 }
 
-export function* fetchProfile() {
+export function* fetchProfile(action) {
   console.log("In Profile");
-  let result = yield getProfile();
+  let result = yield api.fetchProfile(action.data);
   yield put({ type: ActionTypes.API_OUTPUT, result });
-
   console.log(result);
-  // yield put(counter());
 }
 
-function getProfile() {
-  return new Promise(async function(resolve, reject) {
-    try {
-      debugger;
-      let result = await api.fetchProfile("Jalak-Vora");
-      resolve(result);
-    } catch (err) {
-      reject(err);
-    }
-  });
-}
-
-export function* fetchStats() {
-  yield delay(1000);
-  // yield put(counter());
+export function* fetchStats(action) {
+  console.log("In Stats");
+  let result = yield api.fetchStats(action.data);
+  yield put({ type: ActionTypes.API_OUTPUT, result });
+  console.log(result);
 }
 
 export default function* rootSaga() {

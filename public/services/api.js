@@ -18,9 +18,23 @@ function callApi(endpoint) {
 }
 
 export const fetchProfile = async username => {
-  return await callApi(`/profile/${username}`);
+  return new Promise(async function(resolve, reject) {
+    try {
+      let result = await callApi(`/profile/${username}`);
+      resolve(result);
+    } catch (err) {
+      reject(err);
+    }
+  });
 };
 
 export const fetchStats = async username => {
-  return await callApi(`/stats/${username}`);
+  return new Promise(async function(resolve, reject) {
+    try {
+      let result = await callApi(`/stats/${username}`);
+      resolve(result);
+    } catch (err) {
+      reject(err);
+    }
+  });
 };

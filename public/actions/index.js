@@ -12,8 +12,8 @@ function action(type, payload = {}) {
 }
 
 export const dispatchcounter = () => action(INCREMENT);
-export const fetchProfile = () => action(FETCH_PROFILE);
-export const fetchStats = () => action(FETCH_STATS);
+export const fetchProfile = data => action(FETCH_PROFILE, { data });
+export const fetchStats = data => action(FETCH_STATS, { data });
 
 export const checkvalidURL = bValid => {
   return action(VALID_URL, { bValid });

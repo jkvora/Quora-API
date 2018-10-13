@@ -9,11 +9,8 @@ export default class ApiExplorer extends Component {
     return (
       <div className={styles.apiContainer}>
         <div className={styles.apiBox}>
-          <Profile
-            increment={this.props.increment}
-            validurl={this.props.validurl}
-          />
-          <Stats />
+          <Profile {...this.props} />
+          <Stats {...this.props} />
         </div>
         <div className={styles.apiOutput}>
           <ApiOutput apiJson={this.props.apiJson} />

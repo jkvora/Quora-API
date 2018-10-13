@@ -10,9 +10,20 @@ import {
 } from "./../../actions";
 
 class ApiContainer extends Component {
-  handleClick(event) {
+  constructor() {
+    super();
+    this.state = {
+      profile: ""
+    };
+  }
+
+  loadProfile(event) {
     //console.log(event);
-    this.props.fetchProfile();
+    this.props.fetchProfile(this.state.profile);
+  }
+
+  loadStats(event) {
+    this.props.fetchStats(this.state.profile);
   }
 
   handleInputChange(event) {
@@ -32,6 +43,9 @@ class ApiContainer extends Component {
         urlTree.length == 3
       ) {
         if (urlTree[1] === "profile" && urlTree[2] != "") {
+          this.setState({
+            profile: urlTree[2]
+          });
           return true;
         }
       }
@@ -46,7 +60,8 @@ class ApiContainer extends Component {
       <div>
         <ProfileInput inputChange={this.handleInputChange.bind(this)} />
         <ApiExplorer
-          increment={this.handleClick.bind(this)}
+          profile={this.loadProfile.bind(this)}
+          stats={this.loadStats.bind(this)}
           validurl={this.props.isValidURL}
           apiJson={this.props.apiData}
         />

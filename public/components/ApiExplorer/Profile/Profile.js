@@ -21,7 +21,7 @@ function ProfileApi(props) {
         variant="outlined"
         color="primary"
         className={classes.button}
-        onClick={props.increment}
+        onClick={props.profile}
         disabled={!props.validurl}
       >
         Profile

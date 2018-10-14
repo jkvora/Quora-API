@@ -9,7 +9,7 @@ import rootSaga from "./sagas";
 const store = configureStore({
   validURL: false,
   counter: 0,
-  apiOutput: { ans: "The answer to universe is 42." }
+  apiOutput: { json: { ans: "The answer to universe is 42." }, loading: false }
 });
 store.runSaga(rootSaga);
 

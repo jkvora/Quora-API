@@ -63,7 +63,7 @@ class ApiContainer extends Component {
           profile={this.loadProfile.bind(this)}
           stats={this.loadStats.bind(this)}
           validurl={this.props.isValidURL}
-          apiJson={this.props.apiData}
+          apiData={this.props.apiData}
         />
       </div>
     );

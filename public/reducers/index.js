@@ -15,7 +15,15 @@ function validURL(state = {}, action) {
 function apiOutput(state = {}, action) {
   switch (action.type) {
     case ActionTypes.API_OUTPUT: {
-      state = action.result;
+      state = Object.assign({}, state, { json: action.result });
+      break;
+    }
+    case ActionTypes.API_OUTPUT_LOADING: {
+      state = Object.assign({}, state, { loading: true }, state);
+      break;
+    }
+    case ActionTypes.API_OUTPUT_LOADED: {
+      state = Object.assign({}, state, { loading: false }, state);
       break;
     }
   }

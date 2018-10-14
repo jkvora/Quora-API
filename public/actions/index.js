@@ -1,8 +1,7 @@
 export const VALID_URL = "VALID_URL";
 export const API_OUTPUT = "API_OUTPUT";
-
-export const INCREMENT = "INCREMENT";
-export const DECREMENT = "DECREMENT";
+export const API_OUTPUT_LOADING = "API_OUTPUT_LOADING";
+export const API_OUTPUT_LOADED = "API_OUTPUT_LOADED";
 
 export const FETCH_PROFILE = "FETCH_PROFILE";
 export const FETCH_STATS = "FETCH_STATS";

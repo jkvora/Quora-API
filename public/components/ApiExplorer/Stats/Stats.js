@@ -21,7 +21,7 @@ function StatsApi(props) {
         color="primary"
         className={classes.button}
         onClick={props.stats}
-        disabled={!props.validurl}
+        disabled={!props.validurl || props.apiData.loading}
       >
         Stats
       </Button>

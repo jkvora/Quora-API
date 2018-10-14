@@ -22,16 +22,10 @@ function ProfileApi(props) {
         color="primary"
         className={classes.button}
         onClick={props.profile}
-        disabled={!props.validurl}
+        disabled={!props.validurl || props.apiData.loading}
       >
         Profile
       </Button>
-      {/* <Button variant="outlined" color="secondary" className={classes.button}>
-        Profile
-      </Button>
-      <Button variant="outlined" disabled className={classes.button}>
-        Profile
-      </Button> */}
     </div>
   );
 }

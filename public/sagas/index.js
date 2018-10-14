@@ -5,17 +5,31 @@ import api from "./../services";
 export function* fetchProfile(action) {
   console.log("In Profile");
   yield put({ type: ActionTypes.API_OUTPUT_LOADING });
-  let result = yield api.fetchProfile(action.data);
-  yield put({ type: ActionTypes.API_OUTPUT, result });
+
+  try {
+    let result = yield api.fetchProfile(action.data);
+    yield put({ type: ActionTypes.API_OUTPUT, result });
+  } catch (err) {
+    let result = { error: "Something went wrong" };
+    yield put({ type: ActionTypes.API_OUTPUT, result });
+  }
+
   yield put({ type: ActionTypes.API_OUTPUT_LOADED });
-  console.log(result);
 }
 
 export function* fetchStats(action) {
   console.log("In Stats");
-  let result = yield api.fetchStats(action.data);
-  yield put({ type: ActionTypes.API_OUTPUT, result });
-  console.log(result);
+  yield put({ type: ActionTypes.API_OUTPUT_LOADING });
+
+  try {
+    let result = yield api.fetchStats(action.data);
+    yield put({ type: ActionTypes.API_OUTPUT, result });
+  } catch (err) {
+    let result = { error: "Something went wrong" };
+    yield put({ type: ActionTypes.API_OUTPUT, result });
+  }
+
+  yield put({ type: ActionTypes.API_OUTPUT_LOADED });
 }
 
 export default function* rootSaga() {

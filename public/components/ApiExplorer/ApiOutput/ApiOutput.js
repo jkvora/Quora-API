@@ -4,11 +4,12 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 export default class ApiOutput extends Component {
   render() {
-    return (
-      <div>
-        <CircularProgress size={50} />
-        <ReactJson src={this.props.apiData.json} theme="monokai" />
-      </div>
-    );
+    const loading = this.props.apiData.loading;
+    let apiView = <ReactJson src={this.props.apiData.json} theme="monokai" />;
+    if (loading) {
+      apiView = <CircularProgress size={50} />;
+    }
+
+    return <div>{apiView}</div>;
   }
 }

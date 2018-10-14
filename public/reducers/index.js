@@ -19,11 +19,11 @@ function apiOutput(state = {}, action) {
       break;
     }
     case ActionTypes.API_OUTPUT_LOADING: {
-      state = Object.assign({}, state, { loading: true }, state);
+      state = Object.assign({}, state, { loading: true });
       break;
     }
     case ActionTypes.API_OUTPUT_LOADED: {
-      state = Object.assign({}, state, { loading: false }, state);
+      state = Object.assign({}, state, { loading: false });
       break;
     }
   }

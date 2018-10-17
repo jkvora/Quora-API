@@ -29,7 +29,7 @@ app.use(function(req, res, next) {
 
 //Use all routes from routes.js
 app.use("/api", api);
-app.use(express.static(__dirname + "./../public/dist"));
+app.use(express.static(__dirname + "./../dist"));
 
 app.get("/", function(req, res) {
   res.sendFile("index.html");

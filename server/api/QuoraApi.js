@@ -5,8 +5,13 @@ var router = express.Router();
 var qURL = "https://www.quora.com/";
 
 //Get profile Details
-router.get("/profile/:username", async function(req, res) {
-  const browser = await puppeteer.launch();
+router.get("/profile/:username", async function (req, res) {
+  const browser = await puppeteer.launch({
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox'
+    ]
+  });
   const page = await browser.newPage();
   let outputJson = {};
   try {
@@ -40,8 +45,13 @@ router.get("/profile/:username", async function(req, res) {
 });
 
 //Get Stats Detials
-router.get("/stats/:username", async function(req, res) {
-  const browser = await puppeteer.launch();
+router.get("/stats/:username", async function (req, res) {
+  const browser = await puppeteer.launch({
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox'
+    ]
+  });
   const page = await browser.newPage();
   let outputJson = {};
   try {
@@ -87,8 +97,13 @@ router.get("/stats/:username", async function(req, res) {
 });
 
 //Get Stats Detials
-router.get("/answer/:question/:username", async function(req, res) {
-  const browser = await puppeteer.launch();
+router.get("/answer/:question/:username", async function (req, res) {
+  const browser = await puppeteer.launch({
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox'
+    ]
+  });
   const page = await browser.newPage();
   await page.goto(
     qURL + req.params.question + "/answer/" + req.params.username,
@@ -110,10 +125,10 @@ router.get("/answer/:question/:username", async function(req, res) {
   res.setHeader(
     "Content-disposition",
     "attachment; filename=" +
-      req.params.question +
-      "  ( By - " +
-      req.params.username +
-      " ).pdf "
+    req.params.question +
+    "  ( By - " +
+    req.params.username +
+    " ).pdf "
   );
   res.setHeader("Content-type", "application/pdf");
   res.charset = "UTF-8";
